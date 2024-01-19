@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@700&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  min-height: 100vh;
+  font-family: "Signika", sans-serif;
+  font-weight: 700;
+  background-color: #bbb;
+}
+
+.toggles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.toggles-container {
+  display: flex;
+  gap: 24px;
+}
+
+.toggle-container.a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 50px;
+  padding: 0 6px;
+  width: 62px;
+  height: 28px;
+  background-color: #bb5555;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.5), 0 1px rgb(255 255 255 / 0.5);
+  transition-property: background-color;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+
+  &:has(:checked) {
+    background-color: #5698bb;
+  }
+
+  .toggle-input {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    cursor: pointer;
+  }
+
+  .toggle-handle {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-image: url("https://assets.codepen.io/4175254/wood-pattern.png");
+    background-size: 328px 110px;
+    background-position: center;
+    box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.75),
+      inset 0 -1px 4px #b75301, 0 1px 4px rgb(0 0 0 / 0.75);
+    transition-property: transform;
+    transition-duration: 0.4s;
+
+    @at-root .a .toggle-input:checked + .toggle-handle {
+      transform: translateX(34px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 6.5px;
+      border-radius: 50%;
+      background-image: linear-gradient(rgb(174 34 1 / 0.125), transparent);
+      box-shadow: inset 0 1px 2px #ad2201, 0 1px 1px rgb(255 255 255 / 0.75);
+    }
+  }
+
+  .toggle-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    filter: drop-shadow(0 -1px 1px rgb(0 0 0 / 0.25));
+  }
+}
+
+.toggle-container.b {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  width: 72px;
+  height: 28px;
+  background-color: #775b40;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.5), 0 1px rgb(255 255 255 / 0.5);
+  transition-property: background-color;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+
+  &:has(:checked) {
+    background-color: #5698bb;
+  }
+
+  .toggle-input {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    cursor: pointer;
+  }
+
+  .toggle-handle {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    align-content: space-between;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    border-radius: inherit;
+    padding: 9px;
+    width: 36px;
+    height: 100%;
+    transform: translateX(-4px);
+    background-image: url("https://assets.codepen.io/4175254/wood-pattern.png");
+    background-size: 328px 110px;
+    background-position: center;
+    box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.75),
+      inset 0 -1px 4px #b75301, 0 1px 4px rgb(0 0 0 / 0.75);
+    transition-property: transform;
+    transition-duration: 0.4s;
+
+    @at-root .b .toggle-input:checked + .toggle-handle {
+      transform: translateX(40px);
+    }
+  }
+
+  .toggle-handle-dot {
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    box-shadow: inset 0 1px 1px #ad2201, 0 1px 1px rgb(255 255 255 / 0.75);
+  }
+
+  .toggle-text {
+    position: absolute;
+    margin-top: 1px;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgb(0 0 0 / 0.5);
+
+    &.off {
+      right: 8px;
+    }
+
+    &.on {
+      left: 12px;
+    }
+  }
+}
+
+.toggle-container.c {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  position: relative;
+
+  .toggle-input {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    cursor: pointer;
+  }
+
+  .toggle-text {
+    font-size: 14px;
+    color: #766f6a;
+    text-shadow: 0 1px 1px rgb(255 255 255 / 0.75);
+  }
+
+  .toggle-track-wrapper-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .toggle-track-wrapper {
+    filter: drop-shadow(0 1px 1px rgb(255 255 255 / 0.75));
+  }
+
+  .toggle-track {
+    border-radius: 50px;
+    width: 52px;
+    height: 14px;
+    background-color: #775b40;
+    background-image: radial-gradient(
+        14px 14px at 50% calc(50% + 2px),
+        #775b40 50%,
+        #4b3928 calc(50% + 1px)
+      ),
+      radial-gradient(
+        14px 14px at 50% calc(50% + 2px),
+        #775b40 50%,
+        #4b3928 calc(50% + 1px)
+      ),
+      linear-gradient(rgb(0 0 0 / 0.5) calc(50% - 2px), transparent 50%);
+    background-size: 14px 14px, 14px 14px, 100% 100%;
+    background-position: 0 0, 100% 0, 0 0;
+    background-repeat: no-repeat;
+    mask-image: radial-gradient(14px circle, #fff 50%, transparent 0),
+      linear-gradient(transparent 5px, #fff 5px 9px, transparent 0),
+      radial-gradient(14px circle, #fff 50%, transparent 0);
+    mask-size: 14px 14px, 100% 100%, 14px 14px;
+    mask-position: 0 0, 0 0, 100% 0;
+    mask-repeat: no-repeat;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      background-color: #5698bb;
+      background-image: radial-gradient(
+          14px 14px at 50% calc(50% + 2px),
+          #5698bb 50%,
+          #33596e calc(50% + 1px)
+        ),
+        radial-gradient(
+          14px 14px at 50% calc(50% + 2px),
+          #5698bb 50%,
+          #33596e calc(50% + 1px)
+        ),
+        linear-gradient(rgb(0 0 0 / 0.5) calc(50% - 2px), transparent 50%);
+      background-size: inherit;
+      background-position: inherit;
+      background-repeat: inherit;
+      mask: inherit;
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 0.4s;
+      transition-timing-function: linear;
+    }
+
+    @at-root .toggle-container.c:has(:checked) .toggle-track::before {
+      opacity: 1;
+    }
+  }
+
+  .toggle-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -5px;
+    z-index: 1;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-image: url("https://assets.codepen.io/4175254/wood-pattern.png");
+    background-size: 328px 110px;
+    background-position: center;
+    box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.75),
+      inset 0 -1px 4px #b75301, 0 1px 4px rgb(0 0 0 / 0.75);
+    transition-property: transform;
+    transition-duration: 0.4s;
+
+    @at-root .toggle-container.c:has(:checked) .toggle-handle {
+      transform: translateX(35px);
+
+      &::before {
+        background-color: #5698bb;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      background-color: #775b40;
+      box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.5),
+        0 1px 1px rgb(255 255 255 / 0.75);
+      transition-property: background-color;
+      transition-duration: 0.4s;
+      transition-timing-function: linear;
+    }
+  }
+}
+
+.toggle-container.d {
+  position: relative;
+  border-radius: 4px;
+  width: 76px;
+  height: 32px;
+  background-image: linear-gradient(
+      rgb(255 255 255 / 0.125),
+      rgb(255 255 255 / 0.125)
+    ),
+    url("https://assets.codepen.io/4175254/wood-pattern.png");
+  background-size: 100% 100%, 328px 110px;
+  background-position: center;
+  box-shadow: inset 1px 0 1px rgb(73 31 1 / 0.25),
+    inset -1px 0 1px rgb(73 31 1 / 0.25), 0 0 1px rgb(0 0 0 / 0.5),
+    0 1px 2px rgb(0 0 0 / 0.5);
+
+  .toggle-input {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    cursor: pointer;
+  }
+
+  .toggle-handle {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: inherit;
+    padding: 8px;
+    width: 70px;
+    height: inherit;
+    background-image: linear-gradient(
+        90deg,
+        rgb(73 31 1 / 0.125),
+        rgb(255 255 255 / 0.25),
+        rgb(73 31 1 / 0.25)
+      ),
+      url("https://assets.codepen.io/4175254/wood-pattern.png");
+    background-size: 200% 100%, 328px 110px;
+    background-position: 100% 0, center;
+    box-shadow: inset 0 0.5px 1px #e9d38d, inset 1px 0 1px #e9d38d;
+    transition-property: transform, background-position, box-shadow;
+    transition-duration: 0.4s;
+
+    @at-root .toggle-container.d:has(:checked) .toggle-handle {
+      transform: translateX(6px);
+      background-position: 0 0, center;
+      box-shadow: inset 0 0.5px 1px #e9d38d, inset -1px 0 1px #e9d38d;
+    }
+  }
+
+  .toggle-text {
+    position: absolute;
+    font-size: 14px;
+    color: #775b40;
+    text-shadow: 0 1px 1px rgb(255 255 255 / 0.75);
+    transition-property: transform, color;
+    transition-duration: 0.4s;
+
+    &.off {
+      color: #ac4443;
+
+      @at-root .toggle-container.d:has(:checked) .off {
+        transform: translateX(-10%) scaleX(0.8);
+        color: #775b40;
+      }
+    }
+
+    &.on {
+      right: 8px;
+      transform: translateX(10%) scaleX(0.8);
+
+      @at-root .toggle-container.d:has(:checked) .on {
+        transform: translateX(0) scaleX(1);
+        color: #5297ba;
+      }
+    }
+  }
+}
